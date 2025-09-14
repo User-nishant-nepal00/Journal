@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- navbar.html -->
+<nav class="navigation">
+  <div class="nav-container">
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">HOME</a></li>
+      <li><a href="focus.html" class="nav-link">FOCUS</a></li>
+      <li><a href="author-guidelines.html" class="nav-link">AUTHOR GUIDELINES</a></li>
+      <li><a href="current.html" class="nav-link">CURRENT</a></li>
+      <li><a href="archive.html" class="nav-link">ARCHIVE</a></li>
+      <li><a href="publication-ethics.html" class="nav-link">PUBLICATION ETHICS</a></li>
+      <li><a href="search.html" class="nav-link">SEARCH</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- In any page like index.html -->
+<div id="navbar"></div>
+
+<script>
+  fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar').innerHTML = data;
+
+      // Optional: Add 'active' class dynamically based on current page
+      const links = document.querySelectorAll('.nav-link');
+      links.forEach(link => {
+        if(link.href === window.location.href){
+          link.classList.add('active');
+        }
+      });
+    });
+</script>
+
+</body>
+</html>
